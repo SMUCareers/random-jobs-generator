@@ -1,17 +1,16 @@
-// Sample job database: you can expand this array with more jobs
-const jobs = [
-    "Software Developer",
-    "Graphic Designer",
-    "Data Scientist",
-    "Marketing Specialist",
-    "Product Manager",
-    "Teacher",
-    "Chef",
-    "Nurse",
-    "Architect",
-    "Photographer",
-    // Add more jobs as needed
-];
+let jobs = [];
+
+// Replace with your API endpoint
+const apiEndpoint = 'https://example.com/api/jobs';
+
+fetch(apiEndpoint)
+    .then(response => response.json())
+    .then(data => {
+        jobs = data;
+    })
+    .catch(error => {
+        console.error('Error fetching job list from API:', error);
+    });
 
 function generateJob() {
     const dobInput = document.getElementById('dob').value;
